@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #winner{
+            margin: auto;
+            width: 30%;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 30px;
+            
+        }
+        #box{
+            display: flex;
+            justify-content: space-evenly;
+            width: 60%;
+            height: 100px;
+            margin: auto;
+            margin-top: 20px;
+        
+        }
+        #member-1{
+            width: 15%;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #member-2{
+            width: 15%;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #member-3{
+            width: 15%;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #roll{
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="winner">winner</div>
+
+    <div id="box">
+        <div id="member-1"></div>
+        <div id="member-2"></div>
+        <div id="member-3"></div>
+    </div>
+
+    <button id="roll">Roll the dice</button>
+</body>
+</html>
+<script>
+let button=document.querySelector("#roll");
+button.addEventListener("click",roll);
+ function roll(){
+    let dice1=Math.ceil(Math.random()*6)
+    document.querySelector("#member-1").innerText=dice1;
+
+    let dice2=Math.ceil(Math.random()*6)
+    document.querySelector("#member-2").innerText=dice2;
+
+    let dice3=Math.ceil(Math.random()*6)
+    document.querySelector("#member-3").innerText=dice3;
+
+    winner(dice1,dice2,dice3)
+ }
+
+ function winner(dice1,dice2,dice3){
+    if(dice1 > dice2 && dice1>dice3){
+        document.getElementById("member-1").style.backgroundColor="green";
+        if(dice2 > dice3){
+            document.getElementById("member-2").style.backgroundColor="yellow";
+            document.getElementById("member-3").style.backgroundColor="red";
+        }else if(dice3 > dice2){
+            document.getElementById("member-3").style.backgroundColor="yellow";
+            document.getElementById("member-2").style.backgroundColor="red";
+        }else if(dice3 == dice2){
+            document.getElementById("member-3").style.backgroundColor="blue";
+            document.getElementById("member-2").style.backgroundColor="blue";
+        }
+    }else if(dice2 > dice3 && dice2>dice1){
+        document.getElementById("member-2").style.backgroundColor="green";
+        if(dice3 > dice1){
+            document.getElementById("member-3").style.backgroundColor="yellow";
+            document.getElementById("member-1").style.backgroundColor="red";
+        }else if(dice1 > dice3){
+            document.getElementById("member-1").style.backgroundColor="yellow";
+            document.getElementById("member-3").style.backgroundColor="red";
+        }else if(dice3 == dice1){
+            document.getElementById("member-3").style.backgroundColor="blue";
+            document.getElementById("member-1").style.backgroundColor="blue";
+        }
+    }else if(dice3 > dice1 && dice3>dice2){
+        document.getElementById("member-3").style.backgroundColor="green";
+        if(dice1 > dice2){
+            document.getElementById("member-1").style.backgroundColor="yellow";
+            document.getElementById("member-2").style.backgroundColor="red";
+        }else if(dice2 > dice1){
+            document.getElementById("member-2").style.backgroundColor="yellow";
+            document.getElementById("member-1").style.backgroundColor="red";
+        }else if(dice2 == dice1){
+            document.getElementById("member-2").style.backgroundColor="blue";
+            document.getElementById("member-1").style.backgroundColor="blue";
+        }
+    }else if(dice3 > dice1 && dice2>dice1){
+        document.getElementById("member-1").style.backgroundColor="red";
+        document.getElementById("member-2").style.backgroundColor="blue";
+        document.getElementById("member-3").style.backgroundColor="blue";
+    }
+    else if(dice1 > dice3 && dice2>dice3){
+        document.getElementById("member-1").style.backgroundColor="blue";
+        document.getElementById("member-2").style.backgroundColor="blue";
+        document.getElementById("member-3").style.backgroundColor="red";
+    }
+    else if(dice1 > dice2 && dice3>dice2){
+        document.getElementById("member-1").style.backgroundColor="blue";
+        document.getElementById("member-2").style.backgroundColor="red";
+        document.getElementById("member-3").style.backgroundColor="blue";
+    }
+    
+    else{
+        document.getElementById("member-1").style.backgroundColor="blue";
+        document.getElementById("member-2").style.backgroundColor="blue";
+        document.getElementById("member-3").style.backgroundColor="blue";
+    }
+ }
+</script>
