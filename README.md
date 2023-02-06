@@ -1,5 +1,6 @@
 # dice_throw
-It is a dice throwing game made up of only HTML,CSS and JS only.
+![image](https://user-images.githubusercontent.com/105915693/217020319-65213968-531d-482e-8c49-2be848531300.png)
+
 
 # Tech-Stack used
 1.HTML
