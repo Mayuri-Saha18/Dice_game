@@ -1,4 +1,4 @@
-# dice_throw_game
+# Dice_game
 
 ### `Description`
 
